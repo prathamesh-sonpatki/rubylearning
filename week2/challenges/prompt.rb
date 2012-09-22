@@ -1,7 +1,7 @@
 class String
 
   def prompt(options=nil)
-    puts self + "#{options}"
+    puts "#{self}#{options}"
     gets.chomp
   end
 
