@@ -10,19 +10,11 @@ describe "Leap Year" do
 end
 
 def leap_year? year
-  denominator = 4
-  if year % 100 == 0
-    denominator *= 100
-  end
-  if year % denominator == 0
-    true
-  else
-    false
-  end
+  denominator = year % 100 == 0 ? 400 : 4
+  year % denominator == 0
 end
 
 [1900,2000,2004,2005].each do |year|
-  minutes = 365 * 24 * 60
-  minutes += 24 * 60 if leap_year?(year)
+  minutes = leap_year?(year) ? 366 * 24 * 60 : 365 * 24 * 60
   puts "Minutes in year #{year} - #{minutes}"
 end
